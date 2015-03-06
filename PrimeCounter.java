@@ -1,3 +1,5 @@
+/* Gabe Lafontant glafonta@gmail.com*/
+
 import java.util.Scanner;
 
 public class PrimeCounter {
