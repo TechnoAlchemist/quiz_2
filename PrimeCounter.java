@@ -6,26 +6,27 @@ public class PrimeCounter {
 
     Scanner scan = new Scanner(System.in);
 
+    String primeNumbers = " ";
+
     System.out.print("Please enter a number for n: ");
 
     int n = scan.nextInt();
 
-    boolean isPrime = false;
+    for (int i = 1; i <= n; i++) {
 
-    if (n == 2 || n == 3) {
-      isPrime = true;
-    }
-
-    for (long i = 2; i <= (long) Math.sqrt(n); i++) {
-      if (n % i == 0) {
-        isPrime = false;
-        break;
+      int counter = 0;
+      for (int num = i; num >= 1; num--) {
+        if (i % num == 0) {
+          counter++;
+          continue;
+        }
       }
-      else {
-        isPrime = true;
+      if (counter == 2) {
+        primeNumbers = primeNumbers + i + " ";
       }
     }
 
-    System.out.println(n + " " + isPrime);
+    System.out.println("Prime numbers from 1 to n are :");
+    System.out.println(primeNumbers);
   }
 }
