@@ -1,20 +1,31 @@
+import java.util.Scanner;
+
 public class PrimeCounter {
 
   public static void main(String[] args) {
 
-    int maxAmt = new int[1000000];
+    Scanner scan = new Scanner(System.in);
 
-    for (int i = 2; i <= maxAmt; i++) {
-      int counter = 0;
-      for (int n = 0; n < i; n++) {
-        if (n % i == 0) {
-          counter++;
-        }
+    System.out.print("Please enter a number for n: ");
+
+    int n = scan.nextInt();
+
+    boolean isPrime = false;
+
+    if (n == 2 || n == 3) {
+      isPrime = true;
+    }
+
+    for (long i = 2; i <= (long) Math.sqrt(n); i++) {
+      if (n % i == 0) {
+        isPrime = false;
+        break;
       }
-
-      if (counter == 0) {
-        System.out.println(i);
+      else {
+        isPrime = true;
       }
     }
+
+    System.out.println(n + " " + isPrime);
   }
 }
